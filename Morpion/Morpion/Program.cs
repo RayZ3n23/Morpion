@@ -11,7 +11,19 @@ namespace Morpion
         // Fonction permettant l'affichage du Morpion
         public static void AfficherMorpion(int j, int k)
         {
-            // A compléter 
+        	// A Compléter
+            for (j = 0; j < grille.GetLength(0); j++)
+            {
+                Console.Write("\n|===|===|===|\n");
+                Console.Write("|");
+                for (k = 0; k < grille.GetLength(1); k++)
+                {
+                    Console.Write(" - ");
+                    Console.Write("|");
+                }
+            }
+            Console.WriteLine("\n|===|===|===|");
+
         }
 
         // Fonction permettant de changer
@@ -55,17 +67,17 @@ namespace Morpion
 			        grille[j,k] = 10;
 					while(!gagner && essais != 9)
 					{
-
-						// A compléter 
+						// A Compléter
+						AfficherMorpion(j,k);
 						try
 						{
 							Console.WriteLine("Ligne   =    ");
 							Console.WriteLine("Colonne =    ");
 							// Peut changer en fonction de comment vous avez fait votre tableau.
-							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 9); // Permet de manipuler le curseur dans la fenêtre 
+							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 8); // Permet de manipuler le curseur dans la fenêtre 
 							l = int.Parse(Console.ReadLine()) - 1; 
 							// Peut changer en fonction de comment vous avez fait votre tableau.
-							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 10); // Permet de manipuler le curseur dans la fenêtre 
+							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 9); // Permet de manipuler le curseur dans la fenêtre 
 							c = int.Parse(Console.ReadLine()) - 1;
 
 							// A compléter 
@@ -78,7 +90,7 @@ namespace Morpion
 
 						// Changement de joueur
 						// A compléter 
-
+						Console.Clear();
 					}; // Fin TQ
 
             // Fin de la partie
