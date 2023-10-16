@@ -1,0 +1,6 @@
+U:\Mes devoirs\BTS\Atelier de profesionalisation\Ap 2 Morpion\Github\Morpion\Morpion\Morpion\bin\Debug\Morpion.exe.config
+U:\Mes devoirs\BTS\Atelier de profesionalisation\Ap 2 Morpion\Github\Morpion\Morpion\Morpion\bin\Debug\Morpion.exe
+U:\Mes devoirs\BTS\Atelier de profesionalisation\Ap 2 Morpion\Github\Morpion\Morpion\Morpion\bin\Debug\Morpion.pdb
+U:\Mes devoirs\BTS\Atelier de profesionalisation\Ap 2 Morpion\Github\Morpion\Morpion\Morpion\obj\Debug\Morpion.csprojResolveAssemblyReference.cache
+U:\Mes devoirs\BTS\Atelier de profesionalisation\Ap 2 Morpion\Github\Morpion\Morpion\Morpion\obj\Debug\Morpion.exe
+U:\Mes devoirs\BTS\Atelier de profesionalisation\Ap 2 Morpion\Github\Morpion\Morpion\Morpion\obj\Debug\Morpion.pdb
