@@ -62,6 +62,10 @@ namespace Morpion
         // si un joueur à gagner
         public static bool Gagner(int l, int c, int joueur)
         {
+        	if (grille[l,0]+grille[l,1]+grille[l,2]==joueur*3){return true;}
+        	if (grille[0,c]+grille[1,c]+grille[2,c]==joueur*3){return true;}
+        	if (grille[0,0]+grille[1,1]+grille[2,2]==joueur*3){return true;}
+        	if (grille[2,0]+grille[1,1]+grille[0,2]==joueur*3){return true;}
             return false;
         }
 
@@ -101,7 +105,8 @@ namespace Morpion
 							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 10); // Permet de manipuler le curseur dans la fenêtre 
 							c = int.Parse(Console.ReadLine()) - 1;
 							
-							
+							bonnePosition=AJouer(l,c,joueur);
+	
 
 							// A compléter 
 
@@ -113,7 +118,7 @@ namespace Morpion
 							Console.WriteLine(e.ToString());
 						}
 						
-						if (AJouer(l,c,joueur)) 
+						if (bonnePosition) 
 						{
 							if (joueur == 1) 
 							{
@@ -123,12 +128,18 @@ namespace Morpion
 							{
 								joueur = 1;
 							}
+							essais++;
 						}
 						Console.Clear();
+
 					}; // Fin TQ
 
             // Fin de la partie
-            // A compléter 
+            
+            if (essais == 9){
+            	Console.Clear();
+            	Console.Write("égalié");
+            }
             Console.ReadKey();
    		 }
  	 }
