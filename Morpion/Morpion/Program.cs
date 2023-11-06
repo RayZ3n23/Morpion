@@ -89,12 +89,13 @@ namespace Morpion
 	        for (j=0; j < grille.GetLength(0); j++)
 		        for (k=0; k < grille.GetLength(1); k++)
 			        grille[j,k] = 10;
-					while(!gagner && essais != 9)
+	    		    while(!gagner && essais != 9)
 					{
 						// A Compléter
 						AfficherMorpion(j,k);
 						try
 						{
+							
 							Console.WriteLine("C'est au tour du joueur  " + joueur + " : ");
 							Console.WriteLine("Ligne   =    ");
 							Console.WriteLine("Colonne =    ");
@@ -107,38 +108,43 @@ namespace Morpion
 							
 							bonnePosition=AJouer(l,c,joueur);
 	
-
-							// A compléter 
-
+							gagner=Gagner(l,c,joueur);
+							
+							if (bonnePosition) 
+							{
+								if (joueur == 1) 
+								{
+									joueur = 2;
+								}
+								else 
+								{
+									joueur = 1;
+								}
+								essais++;
+							}
 						}
-						 
-						// A compléter
+						
 						catch (Exception e)
 						{
 							Console.WriteLine(e.ToString());
 						}
-						
-						if (bonnePosition) 
-						{
-							if (joueur == 1) 
-							{
-								joueur = 2;
-							}
-							else 
-							{
-								joueur = 1;
-							}
-							essais++;
-						}
 						Console.Clear();
 
-					}; // Fin TQ
+					} // Fin TQ
 
             // Fin de la partie
-            
-            if (essais == 9){
+            if (gagner)
+            {
             	Console.Clear();
-            	Console.Write("égalié");
+            	Console.Write("Le joueur " + joueur + " à gagné");
+            	Console.ReadKey();
+            }
+            
+            if (essais == 9 && !gagner)
+            {
+            	Console.Clear();
+            	Console.Write("égalité");
+            	Console.ReadKey();
             }
             Console.ReadKey();
    		 }
