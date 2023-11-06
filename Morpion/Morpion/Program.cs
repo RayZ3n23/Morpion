@@ -9,9 +9,11 @@ namespace Morpion
         public static int[,] grille = new int[3, 3]; // matrice pour stocker les coups joués
 
         // Fonction permettant l'affichage du Morpion
+        // Affiche O si la valeur correspond au joueur 1
+        // Affiche X si la valeur correspond au joeuer 2
+        // Affiche - Sinon
         public static void AfficherMorpion(int j, int k)
         {
-        	// A Compléter
             for (j = 0; j < grille.GetLength(0); j++)
             {
                 Console.Write("\n|===|===|===|\n");
@@ -46,6 +48,7 @@ namespace Morpion
         public static bool AJouer(int j, int k, int joueur)
         {
             // A compléter
+            // Vérification ne sort pas du tableau + case non jouée et si case non jouée attribu la valeur correspondant au joueur
             if (j <= 2 && k <= 2 && j >= 0 && k >=0)
 			{
             	if (grille[j,k] == 10)
@@ -60,6 +63,8 @@ namespace Morpion
 
         // Fonction permettant de vérifier
         // si un joueur à gagner
+        // grâce au calcul des lignes colones et diagonales
+        // en vérifiant si les valeurs ajouté correspondent à celle du joueur *3
         public static bool Gagner(int l, int c, int joueur)
         {
         	if (grille[l,0]+grille[l,1]+grille[l,2]==joueur*3){return true;}
@@ -91,7 +96,6 @@ namespace Morpion
 			        grille[j,k] = 10;
 	    		    while(!gagner && essais != 9)
 					{
-						// A Compléter
 						AfficherMorpion(j,k);
 						try
 						{
@@ -106,10 +110,13 @@ namespace Morpion
 							Console.SetCursorPosition(LigneDébut + 10, ColonneDébut + 10); // Permet de manipuler le curseur dans la fenêtre 
 							c = int.Parse(Console.ReadLine()) - 1;
 							
+							// Si le joueur à joué la position été donc bonne
 							bonnePosition=AJouer(l,c,joueur);
-	
+							
+							// Devient égal à la fonction Gagner
 							gagner=Gagner(l,c,joueur);
 							
+							// Change le joueur et ajouter un essaie si le joueur a joué avec la bonne position
 							if (bonnePosition) 
 							{
 								if (joueur == 1) 
@@ -133,6 +140,7 @@ namespace Morpion
 					} // Fin TQ
 
             // Fin de la partie
+            // Vérifie si le joueur à gagné
             if (gagner)
             {
             	Console.Clear();
@@ -140,6 +148,7 @@ namespace Morpion
             	Console.ReadKey();
             }
             
+            // Egalité au neuvième coup si il n'est pas gagnant
             if (essais == 9 && !gagner)
             {
             	Console.Clear();
